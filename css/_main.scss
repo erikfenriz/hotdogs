@@ -1,0 +1,102 @@
+@import "palette";
+@import "layout";
+@import "globalFunctions";
+@import "globalMixins";
+
+@mixin text {
+  padding: 10em 0 0 6%;
+  background-color: #ffffff;
+  width: 50%;
+  height: 288px;
+  text-align: left;
+  @media screen and (max-width: 990px) {
+    padding: 7em 0 0 3%;
+  }
+  @media screen and (max-width: 840px) {
+    padding: 4em 0 0 3%;
+  }
+  @media screen and (max-width: 763px) {
+    width: 90%;
+    padding-top: 3em;
+    padding-bottom: 1em;
+    padding-left: 0;
+    height: 180px;
+    float: none;
+    br {
+      display: none;
+    }
+  }
+}
+
+@mixin forH4 {
+  color: $textColor;
+  font-weight: 300;
+  @media screen and (max-width: 390px){
+    font-size: 20px;
+    padding-left: 8px;
+  }
+}
+
+@mixin forBeforeH4 {
+  content: "––";
+  color: $blueSapphire;
+  padding: 10px;
+  position: relative;
+  bottom: 6px;
+  font-weight: 400;
+}
+
+@mixin forP {
+  color: $textColor;
+  padding-left: 55px;
+  font: {
+    size: fluidFont(8px);
+    weight: 300;
+  }
+}
+
+main {
+  .menu {
+    position: relative;
+    bottom: 13px;
+    .odd {
+      .text {
+        @include text;
+        float: left;
+        h4 {
+          @include forH4;
+          &::before {
+            @include forBeforeH4;
+          }
+        }
+        p {
+          @include forP;
+        }
+      }
+    }
+    .even {
+      .text {
+        @include text;
+        float: right;
+        h4 {
+          @include forH4;
+          &::before {
+            @include forBeforeH4;
+          }
+        }
+        p {
+          @include forP;
+        }
+      }
+    }
+    div.col.img {
+      padding: 0 0 0 0;
+      img {
+        width: 50%;
+        @media screen and (max-width: 763px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

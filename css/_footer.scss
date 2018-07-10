@@ -1,0 +1,41 @@
+@import "palette";
+@import "layout";
+@import "globalFunctions";
+@import "globalMixins";
+
+footer {
+  color: $textColor;
+  font-weight: 300;
+  height: 36px;
+  background-color: $footerBack;
+  position: relative;
+  bottom: 13px;
+  padding: 34px;
+  @media screen and (max-width: 505px) {
+    padding: 50px;
+  }
+  p {
+    display: inline;
+    position: relative;
+    bottom: 12px;
+    font-size: fluidFont(7px);
+  }
+  aside {
+    font-size: fluidFont(7px);
+    position: relative;
+    bottom: 6px;
+    float: right;
+    display: inline;
+    padding-bottom: 10px;
+    a {
+      text-decoration: none;
+      @include transition;
+      color: $textColor;
+      &:hover {
+        color: darkred;
+        @include transition;
+        text-decoration: none;
+      }
+    }
+  }
+}
